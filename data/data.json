@@ -1,0 +1,22 @@
+[
+  {
+    "name" : "See you again",
+    "artist" : "Wiz Khalifa, Charlie Puth",
+    "url" : "data/see_you_again.mp3"
+  },
+  {
+    "name" : "Chupee",
+    "artist" : "Cocoon",
+    "url" : "data/chupee.mp3"
+  },
+  {
+    "name" : "Immortals",
+    "artist" : "Fall out boy",
+    "url" : "data/immortals.mp3"
+  },
+  {
+    "name" : "To The Sky",
+    "artist" : "Owl City",
+    "url" : "data/to_the_sky.mp3"
+  }
+]

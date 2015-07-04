@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style/css.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/directives.js"></script>
+    <script src="javascript/services.js"></script>
+</head>
+<body ng-app="webplayer">
+
+<div id="wrapper" ng-controller="mainController">
+
+    <div class="panel panel-info">
+        <div class="panel-heading" ng-click="play()">Playlist</div>
+        <table class="table table-hover">
+            <tr ng-repeat="item in musiclist" url="{{item.url}}" ng-click="play(item.url)">
+                <td>{{item.name}}</td> <td>{{item.artist}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <control></control>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+#wrapper {
+    width : 600px;
+}
+@media screen and (max-width: 1000px) {
+    #wrapper {
+        width : 600px;
+    }
+}
+
+.control-button {
+    font-size: larger;
+    cursor : pointer;
+
+}
+
+.control-button:hover{
+    color: #00b3ee;
+
+}

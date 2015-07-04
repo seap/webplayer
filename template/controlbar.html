@@ -1,0 +1,22 @@
+<div class="panel panel-info">
+    <div class="panel-heading">Control bar</div>
+
+    <div class="panel-body">
+        <span class="glyphicon glyphicon-backward control-button"  aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-play control-button" aria-hidden="true" ng-click="play()" ></span>
+        <span class="glyphicon glyphicon-pause control-button" aria-hidden="true" ng-click="pause()" ></span>
+        <span class="glyphicon glyphicon-forward control-button" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-volume-down control-button" aria-hidden="true" ng-click="volumeDown()"></span>
+        <span class="glyphicon glyphicon-volume-up control-button" aria-hidden="true" ng-click="volumeUp()"></span>
+
+    </div>
+
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{process}}%;">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+
+
+</div>
