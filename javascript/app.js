@@ -21,6 +21,10 @@ wp.controller("mainController", ["$scope", "$http", "player", "audioContext", fu
     $scope.volumeDown = audioContext.volumeDown;
     $scope.process = 10;
 
+    $scope.getBufferArray = function() {
+        return audioContext.getBufferArray();
+    }
+
     $http({method: 'GET', url: 'data/data.json'}).
         success(function(data, status, headers, config) {
             $scope.musiclist = data;

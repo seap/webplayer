@@ -21,14 +21,16 @@ wp.factory("audioContext", [function() {
     var ac = new (window.AudioContext || window.webkitAudioContext);
     var bufferSource = null;
     var gainNode = ac.createGain();
-    gainNode.connect(ac.destination);
-
+    var analyser = ac.createAnalyser();
+    analyser.fftSize = 256;
+    analyser.connect(ac.destination);
 
     console.log("ac create : " + ac);
     var count = 0;
-    return {
+    var acService = {
         load : function(url) {
             var now = ++count;
+
             bufferSource && bufferSource.stop();
             xhr.abort();
             xhr.open("GET", url);
@@ -41,7 +43,8 @@ wp.factory("audioContext", [function() {
                     if (now != count) return;
                     bufferSource = ac.createBufferSource();
                     bufferSource.buffer = buf;
-                    bufferSource.connect(gainNode);
+                    bufferSource.connect(analyser);
+                    //bufferSource.connect(gainNode);
                     gainNode.gain.value = 0.4;
                     bufferSource.start(0);
                 }, function(err) {
@@ -61,13 +64,23 @@ wp.factory("audioContext", [function() {
                 gainNode.gain.value += 0.1;
             }
         },
+
         volumeDown : function () {
 
             if (gainNode.gain.value >= 0) {
                 gainNode.gain.value -= 0.1;
             }
             console.log("volumeDown, value : " + gainNode.gain.value);
+        },
+
+        getBufferArray : function() {
+            var arr = new Uint8Array(analyser.frequencyBinCount);
+            //console.log("analyser.frequencyBinCount : " + analyser.frequencyBinCount)
+            analyser.getByteFrequencyData(arr);
+            return arr;
         }
     };
+
+    return acService;
 
 }]);
