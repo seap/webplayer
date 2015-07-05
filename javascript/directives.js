@@ -68,14 +68,12 @@ wp.directive("visualizer", ["$document", function($document) {
                 }
             }
 
-
             function request() {
                 draw();
                 //console.log("request");
                 requestAnimationFrame(request);
             }
             requestAnimationFrame(request);
-
         }
     };
 }]);

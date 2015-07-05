@@ -15,9 +15,7 @@ wp.factory("player", ["$document", "$http", function($document, $http) {
 }]);
 
 wp.factory("audioContext", [function() {
-
     var xhr = new XMLHttpRequest();
-
     var ac = new (window.AudioContext || window.webkitAudioContext);
     var bufferSource = null;
     var gainNode = ac.createGain();
@@ -72,6 +70,8 @@ wp.factory("audioContext", [function() {
             }
             console.log("volumeDown, value : " + gainNode.gain.value);
         },
+
+        currentTime : ac.currentTime,
 
         getBufferArray : function() {
             var arr = new Uint8Array(analyser.frequencyBinCount);
